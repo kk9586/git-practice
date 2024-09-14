@@ -9,12 +9,12 @@ then
    exit 1
 fi
 
-dnf list installed mysqld 
+dnf list installed git 
 
 if [ $? -ne 0 ]
 then
-    echo "mysql is not installed, going to install it .."
-    dnf install mysqld -y
+    echo "git is not installed, going to install it .."
+    dnf install git -y
 else 
-    echo "mysql is already installed"
+    echo "git is already installed. Nothing to do...."
 fi    
