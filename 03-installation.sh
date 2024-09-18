@@ -9,12 +9,23 @@ then
    exit 1
 fi
 
+VALIDATE(){
+       if [ $1 -eq 0 ]
+          then  
+            echo "$2 is success .. check it"
+            exit 1
+          else 
+            echo "$2 is failure."
+          fi
+}
+
 dnf list installed git 
 
 if [ $? -ne 0 ]
 then
     echo "git is not installed, going to install it .."
     dnf install git -y
+    VALIDATE $? "Installing git"
 else 
     echo "git is already installed. Nothing to do...."
 fi    
@@ -25,13 +36,8 @@ if [ $? -ne 0 ]
 then
     echo "MYSQL is not installed going to install"
     dnf install mysql -y
-        if [ $? -eq 0 ]
-          then  
-            echo "MYSQL installation is success .. check it"
-            exit 1
-          else 
-            echo "MYSQL installation is failure."
-          fi
+    VALIDATE $? "Installing mysql"
+        
 else
     echo "MYSQL is already installed."
 fi    
