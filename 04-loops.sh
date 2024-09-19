@@ -44,6 +44,13 @@ VALIDATE(){
 
 for package in $@   #here @ stores all the values.
 do
-   echo "dnf install $package -y "
-   VALIDATE $? installing $package
-done   
+   dnf list installed $package
+   if [ $? -ne 0 ]
+   then
+       echo "$package is not installed...Going to install"
+       dnf install $package -y
+       VALIDATE $? installing $package
+    else
+       echo "$package is already installed"   
+    fi
+done
