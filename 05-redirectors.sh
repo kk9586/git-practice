@@ -3,7 +3,7 @@
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=&(date +%Y-%m-%d-%H-%M-%S)
-LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME/$TIMESTAMP
+LOG_FILE=$LOGS_FOLDER/$SCRIPT_NAME/$TIMESTAMP.log
 mkdir -p $LOGS_FOLDER
 
 R="\e[31m"
@@ -54,6 +54,6 @@ do
        dnf install $package -y
        VALIDATE $? "installing $package"
     else
-       echo -e $Y "$package is already installed" $N   &>>$LOG_FILE 
+       echo -e $Y "$package is already installed" $N  &>>$LOG_FILE 
     fi
 done
