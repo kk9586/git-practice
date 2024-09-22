@@ -47,7 +47,7 @@ CHECK_ROOT
 
 for package in $@   #here @ stores all the values.
 do
-   dnf list installed $package
+   dnf list installed $package &>>$LOG_FILE
    if [ $? -ne 0 ]
    then
        echo -e $Y "$package is not installed...Going to install" $N  &>>$LOG_FILE
