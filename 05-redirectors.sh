@@ -23,7 +23,7 @@ fi
 } 
 
 USAGE(){
-    echo -e "USAGE: $G sudo sh 16-redirectors.sh package1 package2..." $N
+    echo -e $R "USAGE: $N sudo sh 16-redirectors.sh package1 package2..."
 }
 
 VALIDATE(){
@@ -40,7 +40,7 @@ echo "script started executing at $(date)"
 
 if [ $# -eq 0 ]
   then 
-     echo USAGE
+     USAGE
   fi   
 
 CHECK_ROOT
