@@ -17,22 +17,22 @@ echo "User Id is : $USERID"
 CHECK_ROOT(){
 if [ $USERID -ne 0 ]
 then 
-   echo -e $R "please run this script with root priveleges" $N | &>>$LOG_FILE
+   echo -e $R "please run this script with root priveleges" $N 
    exit 1
 fi
 } 
 
 USAGE(){
-    echo -e $R "USAGE: $N sudo sh 16-redirectors.sh package1 package2..." | &>>$LOG_FILE
+    echo -e $R "USAGE: $N sudo sh 16-redirectors.sh package1 package2..."
 }
 
 VALIDATE(){
        if [ $1 -eq 0 ]
           then  
-            echo -e "$2 is $G success $N .. check it" | &>>$LOG_FILE
+            echo -e "$2 is $G success $N .. check it" &>>$LOG_FILE
             exit 1
           else 
-            echo -e "$2 is $R failed. $N " | &>>$LOG_FILE
+            echo -e "$2 is $R failed. $N "  &>>$LOG_FILE
           fi
 }
 
@@ -50,10 +50,10 @@ do
    dnf list installed $package
    if [ $? -ne 0 ]
    then
-       echo -e $Y "$package is not installed...Going to install" $N | &>>$LOG_FILE
+       echo -e $Y "$package is not installed...Going to install" $N  &>>$LOG_FILE
        dnf install $package -y
        VALIDATE $? "installing $package"
     else
-       echo -e $Y "$package is already installed" $N  | &>>$LOG_FILE 
+       echo -e $Y "$package is already installed" $N   &>>$LOG_FILE 
     fi
 done
