@@ -23,16 +23,16 @@ fi
 } 
 
 USAGE(){
-    echo "USAGE: sudo sh 16-redirectors.sh package1 package2..."
+    echo -e "USAGE: $G sudo sh 16-redirectors.sh package1 package2..." $N
 }
 
 VALIDATE(){
        if [ $1 -eq 0 ]
           then  
-            echo "$2 is success .. check it"
+            echo -e "$2 is $G success $N .. check it"
             exit 1
           else 
-            echo "$2 is failed."
+            echo -e "$2 is $R failed. $N "
           fi
 }
 
@@ -46,10 +46,10 @@ do
    dnf list installed $package
    if [ $? -ne 0 ]
    then
-       echo "$package is not installed...Going to install"
+       echo -e $Y "$package is not installed...Going to install" $N
        dnf install $package -y
        VALIDATE $? "installing $package"
     else
-       echo "$package is already installed"   
+       echo -e $Y "$package is already installed" $N   
     fi
 done
