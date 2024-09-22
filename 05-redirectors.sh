@@ -38,8 +38,12 @@ VALIDATE(){
 
 echo "script started executing at $(date)"
 
+if [ $# -eq 0 ]
+  then 
+     echo USAGE
+  fi   
+
 CHECK_ROOT
-USAGE
 
 for package in $@   #here @ stores all the values.
 do
