@@ -17,13 +17,13 @@ echo "User Id is : $USERID"
 CHECK_ROOT(){
 if [ $USERID -ne 0 ]
 then 
-   echo -e $R "please run this script with root priveleges" $N &>>$LOG_FILE
+   echo -e $R "please run this script with root priveleges" $N | tee -a &>>$LOG_FILE
    exit 1
 fi
 } 
 
 USAGE(){
-    echo -e $R "USAGE: $N sudo sh 16-redirectors.sh package1 package2..." &>>$LOG_FILE
+    echo -e $R "USAGE: $N sudo sh 16-redirectors.sh package1 package2..." | tee -a &>>$LOG_FILE
 }
 
 VALIDATE(){
@@ -36,7 +36,7 @@ VALIDATE(){
           fi
 }
 
-echo "script started executing at $(date)" &>>$LOG_FILE
+echo "script started executing at $(date)" | tee -a &>>$LOG_FILE
 
 if [ $# -eq 0 ]
   then 
