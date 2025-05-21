@@ -7,5 +7,5 @@ then
    echo "$NUMBER  is greater than 25"
 
 else
-   echo "NUMBER is less than 25" 
+   echo "$NUMBER is less than 25" 
 fi     
