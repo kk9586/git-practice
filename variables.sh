@@ -8,6 +8,6 @@ echo "$person2:: hey hi $person1, iam fine. How are you doing"
 
 echo "enter the value"
 
-read NUMBER
+read -s NUMBER
 
 echo "entered value is $NUMBER"
