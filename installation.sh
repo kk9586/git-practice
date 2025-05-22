@@ -59,3 +59,12 @@ then
 else
     echo "git is already installed"
 fi        
+
+dnf list installed mysql
+
+if [ $? -ne 0 ]
+then 
+    echo "mysql is not installed, going to install now"
+else
+    echo "mysql is installed successfully"
+fi    
